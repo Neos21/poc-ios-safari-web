@@ -49,6 +49,9 @@
 <script>
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
+    // navigator.standalone
+    document.getElementById('standalone').innerHTML = navigator.standalone;
+    
     // GPS
     navigator.geolocation.getCurrentPosition(function(evt) {
       console.log(evt);
