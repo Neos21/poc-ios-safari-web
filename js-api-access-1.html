@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>iOS Safari Web Test</title>
+  </head>
+  <body>
+
+<h1>JS API Access</h1>
+
+<p>JS でアクセスできる API を確認する。</p>
+
+<h2>navigator.standalone</h2>
+<p id="standalone">navigator.standalone</p>
+
+<h2>GPS</h2>
+<ul>
+  <li id="gps-lat">lat</li>
+  <li id="gps-lng">lng</li>
+  <li id="gps-log">JSON.stringify(evt)</li>
+</ul>
+
+<h2>加速度センサ</h2>
+<ul>
+  <li id="acceleration-x">x</li>
+  <li id="acceleration-y">y</li>
+  <li id="acceleration-z">z</li>
+  <li id="acceleration-log">JSON.stringify(evt.accelerationIncludingGravity)</li>
+</ul>
+
+<h2>ジャイロセンサ</h2>
+<ul>
+  <li id="rotation-alpha">alpha</li>
+  <li id="rotation-beta">beta</li>
+  <li id="rotation-gamma">gamma</li>
+  <li id="rotation-log">JSON.stringify(evt.rotationRate)</li>
+</ul>
+
+<h2>Etc</h2>
+<ul>
+  <li id="etc-navigator">navigator</li>
+  <li id="etc-devicemotion">devicemotion event</li>
+</ul>
+
+<ul>
+  <li><a href="index.html">Index</a></li>
+</ul>
+
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    // GPS
+    navigator.geolocation.getCurrentPosition(function(evt) {
+      console.log(evt);
+      document.getElementById('gps-lat').innerHTML = evt.coords.latitude;
+      document.getElementById('gps-lng').innerHTML = evt.coords.longitude;
+      document.getElementById('gps-log').innerHTML = JSON.stringify(evt);
+    });
+    
+    // 加速度センサ・ジャイロセンサ
+    window.addEventListener('devicemotion', function(evt) {
+      console.log(evt);
+      
+      // 加速度センサ
+      document.getElementById('acceleration-x').innerHTML = evt.accelerationIncludingGravity.x;
+      document.getElementById('acceleration-y').innerHTML = evt.accelerationIncludingGravity.y;
+      document.getElementById('acceleration-z').innerHTML = evt.accelerationIncludingGravity.z;
+      document.getElementById('acceleration-log').innerHTML = JSON.stringify(evt.accelerationIncludingGravity);
+      
+      // ジャイロセンサ
+      document.getElementById('rotation-alpha').innerHTML = evt.rotationRate.alpha;
+      document.getElementById('rotation-beta').innerHTML = evt.rotationRate.beta;
+      document.getElementById('rotation-gamma').innerHTML = evt.rotationRate.gamma;
+      document.getElementById('rotation-log').innerHTML = JSON.stringify(evt.rotationRate);
+      
+      // Etc
+      document.getElementById('etc-devicemotion').innerHTML = JSON.stringify(evt);
+    });
+    
+    // Etc
+    console.log(navigator);
+    document.getElementById('etc-navigator').innerHTML = JSON.stringify(navigator);
+  });
+})();
+</script>
+
+  </body>
+</html>
