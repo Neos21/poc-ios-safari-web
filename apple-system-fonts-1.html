@@ -11,18 +11,18 @@ body {
 
 .system                    { font-family: -apple-system; }
 .system-blinkmacsystemfont { font-family: -apple-system, BlinkMacSystemFont; }
-.system-body               { font-family: -apple-system-body; }
-.system-headline           { font-family: -apple-system-headline; }
-.system-subheadline        { font-family: -apple-system-subheadline; }
-.system-caption1           { font-family: -apple-system-caption1; }
-.system-caption2           { font-family: -apple-system-caption2; }
-.system-footnote           { font-family: -apple-system-footnote; }
-.system-short-body         { font-family: -apple-system-short-body; }
-.system-short-headline     { font-family: -apple-system-short-headline; }
-.system-short-subheadline  { font-family: -apple-system-short-subheadline; }
-.system-short-caption1     { font-family: -apple-system-short-caption1; }
-.system-short-footnote     { font-family: -apple-system-short-footnote; }
-.system-tall-body          { font-family: -apple-system-tall-body; }
+.system-body               { font: -apple-system-body; }
+.system-headline           { font: -apple-system-headline; }
+.system-subheadline        { font: -apple-system-subheadline; }
+.system-caption1           { font: -apple-system-caption1; }
+.system-caption2           { font: -apple-system-caption2; }
+.system-footnote           { font: -apple-system-footnote; }
+.system-short-body         { font: -apple-system-short-body; }
+.system-short-headline     { font: -apple-system-short-headline; }
+.system-short-subheadline  { font: -apple-system-short-subheadline; }
+.system-short-caption1     { font: -apple-system-short-caption1; }
+.system-short-footnote     { font: -apple-system-short-footnote; }
+.system-tall-body          { font: -apple-system-tall-body; }
 
 .system-ui { font-family: system-ui; }
 
@@ -63,6 +63,7 @@ body {
 <ul>
   <li>Chrome だと <code>font-family: BlinkMacSystemFont;</code> を指定しないといけない。</li>
   <li>一部記号が正しく表示されないのを直す <code>font-family: &quot;.SFNSDisplay-Regular&quot;;</code> 指定は2016年3月頃に不要になった様子。</li>
+  <li>システムフォント指定の <code>-apple-system</code> は <code>font-family</code> に指定すれば良いが、<code>-apple-system-xxx</code> 系のダイナミックフォントは <code>font</code> プロパティに設定して太さなどを変えさせてやらないと反映されない (<a href="https://stackoverflow.com/a/32410620">参考</a>)。</p>
   <li>Chrome だと <code>font-family: system-ui;</code> という指定も効く。</li>
 </ul>
 
