@@ -32,16 +32,34 @@ dd {
 <p>apple-mobile-web-app-capable を指定してフルスクリーンモードにしないと Safari で開かれてしまい別プロセスにならない。</p>
 
 <h2>Geolocation</h2>
-<ul>
-  <li id="gps-latitude">latitude</li>
-  <li id="gps-longitude">longitude</li>
-  <li id="gps-altitude">altitude</li>
-  <li id="gps-accuracy">accuracy</li>
-  <li id="gps-altitudeaccuracy">altitudeAccuracy</li>
-  <li id="gps-heading">heading</li>
-  <li id="gps-speed">speed</li>
-  <li id="gps-timestamp">timestamp</li>
-</ul>
+<dl>
+  <dt>getCurrentPosition</dt>
+  <dd>
+    <ul>
+      <li id="geo-current-latitude">latitude</li>
+      <li id="geo-current-longitude">longitude</li>
+      <li id="geo-current-altitude">altitude</li>
+      <li id="geo-current-accuracy">accuracy</li>
+      <li id="geo-current-altitudeaccuracy">altitudeAccuracy</li>
+      <li id="geo-current-heading">heading</li>
+      <li id="geo-current-speed">speed</li>
+      <li id="geo-current-timestamp">timestamp</li>
+    </ul>
+  </dd>
+  <dt>watchPosition</dt>
+  <dd>
+    <ul>
+      <li id="geo-watch-latitude">latitude</li>
+      <li id="geo-watch-longitude">longitude</li>
+      <li id="geo-watch-altitude">altitude</li>
+      <li id="geo-watch-accuracy">accuracy</li>
+      <li id="geo-watch-altitudeaccuracy">altitudeAccuracy</li>
+      <li id="geo-watch-heading">heading</li>
+      <li id="geo-watch-speed">speed</li>
+      <li id="geo-watch-timestamp">timestamp</li>
+    </ul>
+  </dd>
+</dl>
 
 <h2>DeviceMotion</h2>
 <dl>
@@ -92,20 +110,34 @@ dd {
 
 <script>
 (function() {
-  document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener('load', function() {
     // navigator.standalone
     document.getElementById('standalone').innerHTML = navigator.standalone;
     
-    navigator.geolocation.watchPosition(function(event) {
-      document.getElementById('gps-latitude'        ).innerHTML = 'latitude         : ' + event.coords.latitude;
-      document.getElementById('gps-longitude'       ).innerHTML = 'longitude        : ' + event.coords.longitude;
-      document.getElementById('gps-altitude'        ).innerHTML = 'altitude         : ' + event.coords.altitude;
-      document.getElementById('gps-accuracy'        ).innerHTML = 'accuracy         : ' + event.coords.accuracy;
-      document.getElementById('gps-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + event.coords.altitudeAccuracy;
-      document.getElementById('gps-heading'         ).innerHTML = 'heading          : ' + event.coords.heading;
-      document.getElementById('gps-speed'           ).innerHTML = 'speed            : ' + event.coords.speed;
-      document.getElementById('gps-timestamp'       ).innerHTML = 'timestamp        : ' + event.timestamp;
+    // Geolocation
+    navigator.geolocation.getCurrentPosition(function(event) {
+      document.getElementById('geo-current-latitude'        ).innerHTML = 'latitude         : ' + event.coords.latitude;
+      document.getElementById('geo-current-longitude'       ).innerHTML = 'longitude        : ' + event.coords.longitude;
+      document.getElementById('geo-current-altitude'        ).innerHTML = 'altitude         : ' + event.coords.altitude;
+      document.getElementById('geo-current-accuracy'        ).innerHTML = 'accuracy         : ' + event.coords.accuracy;
+      document.getElementById('geo-current-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + event.coords.altitudeAccuracy;
+      document.getElementById('geo-current-heading'         ).innerHTML = 'heading          : ' + event.coords.heading;
+      document.getElementById('geo-current-speed'           ).innerHTML = 'speed            : ' + event.coords.speed;
+      document.getElementById('geo-current-timestamp'       ).innerHTML = 'timestamp        : ' + event.timestamp;
     });
+    var watchId = navigator.geolocation.watchPosition(function(event) {
+      document.getElementById('geo-watch-latitude'        ).innerHTML = 'latitude         : ' + event.coords.latitude;
+      document.getElementById('geo-watch-longitude'       ).innerHTML = 'longitude        : ' + event.coords.longitude;
+      document.getElementById('geo-watch-altitude'        ).innerHTML = 'altitude         : ' + event.coords.altitude;
+      document.getElementById('geo-watch-accuracy'        ).innerHTML = 'accuracy         : ' + event.coords.accuracy;
+      document.getElementById('geo-watch-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + event.coords.altitudeAccuracy;
+      document.getElementById('geo-watch-heading'         ).innerHTML = 'heading          : ' + event.coords.heading;
+      document.getElementById('geo-watch-speed'           ).innerHTML = 'speed            : ' + event.coords.speed;
+      document.getElementById('geo-watch-timestamp'       ).innerHTML = 'timestamp        : ' + event.timestamp;
+    });
+    setTimeout(function() {
+      navigator.geolocation.clearWatch(watchId);
+    }, 1000 * 10);
     
     window.addEventListener('devicemotion', function(event) {
       // Interval
