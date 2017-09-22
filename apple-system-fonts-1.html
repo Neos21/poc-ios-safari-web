@@ -5,22 +5,22 @@
     <title>iOS Safari Web Test</title>
     <style>
 
-#apple-system-fonts li:nth-child(1)  { font-family: --apple-system                                      ; }
-#apple-system-fonts li:nth-child(2)  { font-family: --apple-system                  , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(3)  { font-family: --apple-system-body             , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(4)  { font-family: --apple-system-headline         , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(5)  { font-family: --apple-system-subheadline      , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(6)  { font-family: --apple-system-caption1         , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(7)  { font-family: --apple-system-caption2         , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(8)  { font-family: --apple-system-footnote         , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(9)  { font-family: --apple-system-short-body       , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(10) { font-family: --apple-system-short-headline   , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(11) { font-family: --apple-system-short-subheadline, BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(12) { font-family: --apple-system-short-caption1   , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(13) { font-family: --apple-system-short-footnote   , BlinkMacSystemFont; }
-#apple-system-fonts li:nth-child(14) { font-family: --apple-system-tall-body        , BlinkMacSystemFont; }
+.system                    { font-family: --apple-system                    ; }
+.system-blinkmacsystemfont { font-family: --apple-system, BlinkMacSystemFont; }
+.system-body               { font-family: --apple-system-body               ; }
+.system-headline           { font-family: --apple-system-headline           ; }
+.system-subheadline        { font-family: --apple-system-subheadline        ; }
+.system-caption1           { font-family: --apple-system-caption1           ; }
+.system-caption2           { font-family: --apple-system-caption2           ; }
+.system-footnote           { font-family: --apple-system-footnote           ; }
+.system-short-body         { font-family: --apple-system-short-body         ; }
+.system-short-headline     { font-family: --apple-system-short-headline     ; }
+.system-short-subheadline  { font-family: --apple-system-short-subheadline  ; }
+.system-short-caption1     { font-family: --apple-system-short-caption1     ; }
+.system-short-footnote     { font-family: --apple-system-short-footnote     ; }
+.system-tall-body          { font-family: --apple-system-tall-body          ; }
 
-#system-ui li { font-family: system-ui; }
+.system-ui { font-family: system-ui; }
 
     </style>
   </head>
@@ -36,24 +36,24 @@
 </p>
 
 <ul id="apple-system-fonts">
-  <li>--apple-system … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system, BlinkMacSystemFont … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-body … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-headline … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-subheadline … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-caption1 … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-caption2 … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-footnote … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-short-body … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-short-headline … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-short-subheadline … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-short-caption1 … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-short-footnote … 新システムフォント San Francisco の表示確認用テキスト</li>
-  <li>--apple-system-tall-body … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system">--apple-system … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-blinkmacsystemfont">--apple-system, BlinkMacSystemFont … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-body">--apple-system-body … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-headline">--apple-system-headline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-subheadline">--apple-system-subheadline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-caption1">--apple-system-caption1 … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-caption2">--apple-system-caption2 … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-footnote">--apple-system-footnote … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-short-body">--apple-system-short-body … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-short-headline">--apple-system-short-headline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-short-subheadline">--apple-system-short-subheadline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-short-caption1">--apple-system-short-caption1 … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-short-footnote">--apple-system-short-footnote … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li class="system-tall-body">--apple-system-tall-body … 新システムフォント San Francisco の表示確認用テキスト</li>
 </ul>
 
-<ul id="system-ui">
-  <li>system-ui … 新システムフォント San Francisco の表示確認用テキスト</li>
+<ul>
+  <li class="system-ui">system-ui … 新システムフォント San Francisco の表示確認用テキスト</li>
 </ul>
 
 <ul>
