@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>iOS Safari Web Test</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+
+li {
+  font-family: monospace;
+  white-space: pre;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+    </style>
   </head>
   <body>
 
@@ -15,33 +31,59 @@
 <p id="standalone">navigator.standalone</p>
 <p>apple-mobile-web-app-capable を指定してフルスクリーンモードにしないと Safari で開かれてしまい別プロセスにならない。</p>
 
-<h2>GPS</h2>
+<h2>Geolocation</h2>
 <ul>
-  <li id="gps-lat">lat</li>
-  <li id="gps-lng">lng</li>
-  <li id="gps-log">JSON.stringify(evt)</li>
+  <li id="gps-latitude">latitude</li>
+  <li id="gps-longitude">longitude</li>
+  <li id="gps-altitude">altitude</li>
+  <li id="gps-accuracy">accuracy</li>
+  <li id="gps-altitudeaccuracy">altitudeAccuracy</li>
+  <li id="gps-heading">heading</li>
+  <li id="gps-speed">speed</li>
+  <li id="gps-timestamp">timestamp</li>
 </ul>
 
-<h2>加速度センサ</h2>
-<ul>
-  <li id="acceleration-x">x</li>
-  <li id="acceleration-y">y</li>
-  <li id="acceleration-z">z</li>
-  <li id="acceleration-log">JSON.stringify(evt.accelerationIncludingGravity)</li>
-</ul>
+<h2>DeviceMotion</h2>
+<dl>
+  <dt>Interval</dt>
+  <dd>
+    <ul>
+      <li id="devicemotion-interval">interval</li>
+    </ul>
+  </dd>
+  <dt>Acceleration</dt>
+  <dd>
+    <ul>
+      <li id="devicemotion-acceleration-x">x</li>
+      <li id="devicemotion-acceleration-y">y</li>
+      <li id="devicemotion-acceleration-z">z</li>
+    </ul>
+  </dd>
+  <dt>Acceleration Including Gravity</dt>
+  <dd>
+    <ul>
+      <li id="devicemotion-accelerationincludinggravity-x">x</li>
+      <li id="devicemotion-accelerationincludinggravity-y">y</li>
+      <li id="devicemotion-accelerationincludinggravity-z">z</li>
+    </ul>
+  </dd>
+  <dt>Rotation</dt>
+  <dd>
+    <ul>
+      <li id="devicemotion-rotation-alpha">alpha</li>
+      <li id="devicemotion-rotation-beta">beta</li>
+      <li id="devicemotion-rotation-gamma">gamma</li>
+    </ul>
+  </dd>
+</dl>
 
-<h2>ジャイロセンサ</h2>
+<h2>DeviceOrientation</h2>
 <ul>
-  <li id="rotation-alpha">alpha</li>
-  <li id="rotation-beta">beta</li>
-  <li id="rotation-gamma">gamma</li>
-  <li id="rotation-log">JSON.stringify(evt.rotationRate)</li>
-</ul>
-
-<h2>Etc</h2>
-<ul>
-  <li id="etc-navigator">navigator</li>
-  <li id="etc-devicemotion">devicemotion event</li>
+  <li id="deviceorientation-alpha">alpha</li>
+  <li id="deviceorientation-beta">beta</li>
+  <li id="deviceorientation-gamma">gamma</li>
+  <li id="deviceorientation-webkitcompassheading">webkitCompassHeading</li>
+  <li id="deviceorientation-webkitcompassaccuracy">webkitCompassAccuracy</li>
 </ul>
 
 <ul>
@@ -54,37 +96,41 @@
     // navigator.standalone
     document.getElementById('standalone').innerHTML = navigator.standalone;
     
-    // GPS
-    navigator.geolocation.getCurrentPosition(function(evt) {
-      console.log(evt);
-      document.getElementById('gps-lat').innerHTML = evt.coords.latitude;
-      document.getElementById('gps-lng').innerHTML = evt.coords.longitude;
-      document.getElementById('gps-log').innerHTML = JSON.stringify(evt);
+    navigator.geolocation.watchPosition(function(event) {
+      document.getElementById('gps-latitude'        ).innerHTML = 'latitude         : ' + event.coords.latitude;
+      document.getElementById('gps-longitude'       ).innerHTML = 'longitude        : ' + event.coords.longitude;
+      document.getElementById('gps-altitude'        ).innerHTML = 'altitude         : ' + event.coords.altitude;
+      document.getElementById('gps-accuracy'        ).innerHTML = 'accuracy         : ' + event.coords.accuracy;
+      document.getElementById('gps-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + event.coords.altitudeAccuracy;
+      document.getElementById('gps-heading'         ).innerHTML = 'heading          : ' + event.coords.heading;
+      document.getElementById('gps-speed'           ).innerHTML = 'speed            : ' + event.coords.speed;
+      document.getElementById('gps-timestamp'       ).innerHTML = 'timestamp        : ' + event.timestamp;
     });
     
-    // 加速度センサ・ジャイロセンサ
-    window.addEventListener('devicemotion', function(evt) {
-      console.log(evt);
-      
-      // 加速度センサ
-      document.getElementById('acceleration-x').innerHTML = evt.accelerationIncludingGravity.x;
-      document.getElementById('acceleration-y').innerHTML = evt.accelerationIncludingGravity.y;
-      document.getElementById('acceleration-z').innerHTML = evt.accelerationIncludingGravity.z;
-      document.getElementById('acceleration-log').innerHTML = JSON.stringify(evt.accelerationIncludingGravity);
-      
-      // ジャイロセンサ
-      document.getElementById('rotation-alpha').innerHTML = evt.rotationRate.alpha;
-      document.getElementById('rotation-beta').innerHTML = evt.rotationRate.beta;
-      document.getElementById('rotation-gamma').innerHTML = evt.rotationRate.gamma;
-      document.getElementById('rotation-log').innerHTML = JSON.stringify(evt.rotationRate);
-      
-      // Etc
-      document.getElementById('etc-devicemotion').innerHTML = JSON.stringify(evt);
+    window.addEventListener('devicemotion', function(event) {
+      // Interval
+      document.getElementById('devicemotion-interval').innerHTML = 'interval : ' + event.interval;
+      // Acceleration
+      document.getElementById('devicemotion-acceleration-x').innerHTML = 'x : ' + event.acceleration.x;
+      document.getElementById('devicemotion-acceleration-y').innerHTML = 'y : ' + event.acceleration.y;
+      document.getElementById('devicemotion-acceleration-z').innerHTML = 'z : ' + event.acceleration.z;
+      // Acceleration Including Gravity
+      document.getElementById('devicemotion-accelerationincludinggravity-x').innerHTML = 'x : ' + event.accelerationIncludingGravity.x;
+      document.getElementById('devicemotion-accelerationincludinggravity-y').innerHTML = 'y : ' + event.accelerationIncludingGravity.y;
+      document.getElementById('devicemotion-accelerationincludinggravity-z').innerHTML = 'z : ' + event.accelerationIncludingGravity.z;
+      // Rotation
+      document.getElementById('devicemotion-rotation-alpha').innerHTML = 'alpha : ' + event.rotationRate.alpha;
+      document.getElementById('devicemotion-rotation-beta' ).innerHTML = 'beta  : ' + event.rotationRate.beta;
+      document.getElementById('devicemotion-rotation-gamma').innerHTML = 'gamma : ' + event.rotationRate.gamma;
     });
     
-    // Etc
-    console.log(navigator);
-    document.getElementById('etc-navigator').innerHTML = JSON.stringify(navigator);
+    window.addEventListener('deviceorientation', function(event) {
+      document.getElementById('deviceorientation-alpha').innerHTML = 'alpha : ' + event.rotationRate.alpha;
+      document.getElementById('deviceorientation-beta' ).innerHTML = 'beta  : ' + event.rotationRate.beta;
+      document.getElementById('deviceorientation-gamma').innerHTML = 'gamma : ' + event.rotationRate.gamma;
+      document.getElementById('deviceorientation-webkitcompassheading' ).innerHTML = 'webkitCompassHeading  : ' + event.webkitCompassHeading;
+      document.getElementById('deviceorientation-webkitcompassaccuracy').innerHTML = 'webkitCompassAccuracy : ' + event.webkitCompassAccuracy;
+    });
   });
 })();
 </script>
