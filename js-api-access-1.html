@@ -125,9 +125,9 @@ dd {
     });
     
     window.addEventListener('deviceorientation', function(event) {
-      document.getElementById('deviceorientation-alpha').innerHTML = 'alpha : ' + event.rotationRate.alpha;
-      document.getElementById('deviceorientation-beta' ).innerHTML = 'beta  : ' + event.rotationRate.beta;
-      document.getElementById('deviceorientation-gamma').innerHTML = 'gamma : ' + event.rotationRate.gamma;
+      document.getElementById('deviceorientation-alpha').innerHTML = 'alpha : ' + event.alpha;
+      document.getElementById('deviceorientation-beta' ).innerHTML = 'beta  : ' + event.beta;
+      document.getElementById('deviceorientation-gamma').innerHTML = 'gamma : ' + event.gamma;
       document.getElementById('deviceorientation-webkitcompassheading' ).innerHTML = 'webkitCompassHeading  : ' + event.webkitCompassHeading;
       document.getElementById('deviceorientation-webkitcompassaccuracy').innerHTML = 'webkitCompassAccuracy : ' + event.webkitCompassAccuracy;
     });
