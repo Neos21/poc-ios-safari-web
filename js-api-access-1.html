@@ -7,7 +7,7 @@
     <style>
 
 li {
-  font-family: monospace;
+  font-family: "Courier New", monospace;
   white-space: pre;
 }
 
@@ -115,29 +115,27 @@ dd {
     document.getElementById('standalone').innerHTML = navigator.standalone;
     
     // Geolocation
-    navigator.geolocation.getCurrentPosition(function(event) {
-      document.getElementById('geo-current-latitude'        ).innerHTML = 'latitude         : ' + event.coords.latitude;
-      document.getElementById('geo-current-longitude'       ).innerHTML = 'longitude        : ' + event.coords.longitude;
-      document.getElementById('geo-current-altitude'        ).innerHTML = 'altitude         : ' + event.coords.altitude;
-      document.getElementById('geo-current-accuracy'        ).innerHTML = 'accuracy         : ' + event.coords.accuracy;
-      document.getElementById('geo-current-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + event.coords.altitudeAccuracy;
-      document.getElementById('geo-current-heading'         ).innerHTML = 'heading          : ' + event.coords.heading;
-      document.getElementById('geo-current-speed'           ).innerHTML = 'speed            : ' + event.coords.speed;
-      document.getElementById('geo-current-timestamp'       ).innerHTML = 'timestamp        : ' + event.timestamp;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      document.getElementById('geo-current-latitude'        ).innerHTML = 'latitude         : ' + position.coords.latitude;
+      document.getElementById('geo-current-longitude'       ).innerHTML = 'longitude        : ' + position.coords.longitude;
+      document.getElementById('geo-current-altitude'        ).innerHTML = 'altitude         : ' + position.coords.altitude;
+      document.getElementById('geo-current-accuracy'        ).innerHTML = 'accuracy         : ' + position.coords.accuracy;
+      document.getElementById('geo-current-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + position.coords.altitudeAccuracy;
+      document.getElementById('geo-current-heading'         ).innerHTML = 'heading          : ' + position.coords.heading;
+      document.getElementById('geo-current-speed'           ).innerHTML = 'speed            : ' + position.coords.speed;
+      document.getElementById('geo-current-timestamp'       ).innerHTML = 'timestamp        : ' + position.timestamp;
     });
-    var watchId = navigator.geolocation.watchPosition(function(event) {
-      document.getElementById('geo-watch-latitude'        ).innerHTML = 'latitude         : ' + event.coords.latitude;
-      document.getElementById('geo-watch-longitude'       ).innerHTML = 'longitude        : ' + event.coords.longitude;
-      document.getElementById('geo-watch-altitude'        ).innerHTML = 'altitude         : ' + event.coords.altitude;
-      document.getElementById('geo-watch-accuracy'        ).innerHTML = 'accuracy         : ' + event.coords.accuracy;
-      document.getElementById('geo-watch-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + event.coords.altitudeAccuracy;
-      document.getElementById('geo-watch-heading'         ).innerHTML = 'heading          : ' + event.coords.heading;
-      document.getElementById('geo-watch-speed'           ).innerHTML = 'speed            : ' + event.coords.speed;
-      document.getElementById('geo-watch-timestamp'       ).innerHTML = 'timestamp        : ' + event.timestamp;
+    var watchId = navigator.geolocation.watchPosition(function(position) {
+      document.getElementById('geo-watch-latitude'        ).innerHTML = 'latitude         : ' + position.coords.latitude;
+      document.getElementById('geo-watch-longitude'       ).innerHTML = 'longitude        : ' + position.coords.longitude;
+      document.getElementById('geo-watch-altitude'        ).innerHTML = 'altitude         : ' + position.coords.altitude;
+      document.getElementById('geo-watch-accuracy'        ).innerHTML = 'accuracy         : ' + position.coords.accuracy;
+      document.getElementById('geo-watch-altitudeaccuracy').innerHTML = 'altitudeAccuracy : ' + position.coords.altitudeAccuracy;
+      document.getElementById('geo-watch-heading'         ).innerHTML = 'heading          : ' + position.coords.heading;
+      document.getElementById('geo-watch-speed'           ).innerHTML = 'speed            : ' + position.coords.speed;
+      document.getElementById('geo-watch-timestamp'       ).innerHTML = 'timestamp        : ' + position.timestamp;
     });
-    setTimeout(function() {
-      navigator.geolocation.clearWatch(watchId);
-    }, 1000 * 10);
+    // navigator.geolocation.clearWatch(watchId);
     
     window.addEventListener('devicemotion', function(event) {
       // Interval
