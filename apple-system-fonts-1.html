@@ -5,20 +5,24 @@
     <title>iOS Safari Web Test</title>
     <style>
 
-.system                    { font-family: --apple-system                    ; }
-.system-blinkmacsystemfont { font-family: --apple-system, BlinkMacSystemFont; }
-.system-body               { font-family: --apple-system-body               ; }
-.system-headline           { font-family: --apple-system-headline           ; }
-.system-subheadline        { font-family: --apple-system-subheadline        ; }
-.system-caption1           { font-family: --apple-system-caption1           ; }
-.system-caption2           { font-family: --apple-system-caption2           ; }
-.system-footnote           { font-family: --apple-system-footnote           ; }
-.system-short-body         { font-family: --apple-system-short-body         ; }
-.system-short-headline     { font-family: --apple-system-short-headline     ; }
-.system-short-subheadline  { font-family: --apple-system-short-subheadline  ; }
-.system-short-caption1     { font-family: --apple-system-short-caption1     ; }
-.system-short-footnote     { font-family: --apple-system-short-footnote     ; }
-.system-tall-body          { font-family: --apple-system-tall-body          ; }
+body {
+  font-family: serif;
+}
+
+.system                    { font-family: -apple-system                                      ; }
+.system-blinkmacsystemfont { font-family: -apple-system                  , BlinkMacSystemFont; }
+.system-body               { font-family: -apple-system-body             , BlinkMacSystemFont; }
+.system-headline           { font-family: -apple-system-headline         , BlinkMacSystemFont; }
+.system-subheadline        { font-family: -apple-system-subheadline      , BlinkMacSystemFont; }
+.system-caption1           { font-family: -apple-system-caption1         , BlinkMacSystemFont; }
+.system-caption2           { font-family: -apple-system-caption2         , BlinkMacSystemFont; }
+.system-footnote           { font-family: -apple-system-footnote         , BlinkMacSystemFont; }
+.system-short-body         { font-family: -apple-system-short-body       , BlinkMacSystemFont; }
+.system-short-headline     { font-family: -apple-system-short-headline   , BlinkMacSystemFont; }
+.system-short-subheadline  { font-family: -apple-system-short-subheadline, BlinkMacSystemFont; }
+.system-short-caption1     { font-family: -apple-system-short-caption1   , BlinkMacSystemFont; }
+.system-short-footnote     { font-family: -apple-system-short-footnote   , BlinkMacSystemFont; }
+.system-tall-body          { font-family: -apple-system-tall-body        , BlinkMacSystemFont; }
 
 .system-ui { font-family: system-ui; }
 
@@ -28,7 +32,7 @@
 
 <h1>Apple System Font</h1>
 
-<p>iOS9 以降だと新システムフォント San Francisco を指定するために <code>--apple-system</code> という <code>font-family</code> が指定できる。</p>
+<p>iOS9 以降だと新システムフォント San Francisco を指定するために <code>-apple-system</code> という <code>font-family</code> が指定できる。</p>
 
 <p>
   <input type="button" id="large" value="文字を大きく⇔戻す">
