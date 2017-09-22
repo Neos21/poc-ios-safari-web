@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>iOS Safari Web Test</title>
+    <style>
+
+body {
+  font-family: serif;
+}
+
+#apple-system-fonts li:nth-child(1)  { font-family: --apple-system; }
+#apple-system-fonts li:nth-child(2)  { font-family: --apple-system                  , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(3)  { font-family: --apple-system-body             , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(4)  { font-family: --apple-system-headline         , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(5)  { font-family: --apple-system-subheadline      , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(6)  { font-family: --apple-system-caption1         , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(7)  { font-family: --apple-system-caption2         , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(8)  { font-family: --apple-system-footnote         , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(9)  { font-family: --apple-system-short-body       , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(10) { font-family: --apple-system-short-headline   , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(11) { font-family: --apple-system-short-subheadline, BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(12) { font-family: --apple-system-short-caption1   , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(13) { font-family: --apple-system-short-footnote   , BlinkMacSystemFont; }
+#apple-system-fonts li:nth-child(14) { font-family: --apple-system-tall-body        , BlinkMacSystemFont; }
+
+#system-ui li { font-family: system-ui; }
+
+    </style>
+  </head>
+  <body>
+
+<h1>Apple System Font</h1>
+
+<p>iOS9 以降だと新システムフォント San Francisco を指定するために <code>--apple-system</code> という <code>font-family</code> が指定できる。フォントが効いているか確認するため、<code>body</code> には <code>font-family: serif;</code> (明朝体) を指定した。</p>
+
+<p>
+  <input type="button" id="large" value="文字を大きく⇔戻す">
+  <input type="button" id="bold" value="文字を太く⇔戻す">
+</p>
+
+<ul id="apple-system-fonts">
+  <li>--apple-system … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system, BlinkMacSystemFont … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-body … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-headline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-subheadline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-caption1 … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-caption2 … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-footnote … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-short-body … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-short-headline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-short-subheadline … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-short-caption1 … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-short-footnote … 新システムフォント San Francisco の表示確認用テキスト</li>
+  <li>--apple-system-tall-body … 新システムフォント San Francisco の表示確認用テキスト</li>
+</ul>
+
+<ul id="system-ui">
+  <li>system-ui … 新システムフォント San Francisco の表示確認用テキスト</li>
+</ul>
+
+<ul>
+  <li>Chrome だと <code>font-family: BlinkMacSystemFont;</code> を指定しないといけない。</li>
+  <li>一部記号が正しく表示されないのを直す <code>font-family: &quot;.SFNSDisplay-Regular&quot;;</code> 指定は2016年3月頃に不要になった様子。</li>
+  <li>Chrome だと <code>font-family: system-ui;</code> という指定も効く。</li>
+</ul>
+
+<ul>
+  <li><a href="index.html">Index</a></li>
+</ul>
+
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var isLarge = false;
+    document.getElementById('large').addEventListener('click', function() {
+      document.body.style.fontSize = isLarge ? '100%' : '130%';
+      isLarge = !isLarge;
+    });
+    
+    var isBold = false;
+    document.getElementById('bold').addEventListener('click', function() {
+      document.body.style.fontWeight = isBold ? 'normal' : 'bold';
+      isBold = !isBold;
+    });
+  });
+})();
+</script>
+
+  </body>
+</html>
