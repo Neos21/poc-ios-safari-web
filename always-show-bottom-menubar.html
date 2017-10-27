@@ -28,25 +28,9 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-
-/* タイトル */
-.title {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  line-height: 50px;
-  white-space: nowrap;
-  background: #08f;
-}
-
 /* 内部要素の margin を打ち消さないために padding を指定したコンテナを用意しておく */
 .container {
-  padding: 65px 15px 15px;
+  padding: 15px;
 }
 
 /* コンテンツの余白と行間 */
@@ -60,7 +44,6 @@ body {
   <body>
 
 <div class="wrapper">
-  <div class="title">iOS Safari Web Test</div>
   <div class="container">
     <h1>Always Show Bottom MenuBar</h1>
     
@@ -68,6 +51,8 @@ body {
     <p>iOS7 時代は、viewport に <code>minimal-ui</code> という独自のプロパティを指定することで、メニューバーを非表示にできた。</p>
     <p>バージョンアップによりこの機能が廃止されたため、スクロールしてもメニューバーが隠れないようにする方法を考えた。</p>
     <p>html・body 要素のスクロールによってメニューバーが隠れるため、ページのスクロールは行わないようにした。代わりに body 要素直下に Wrapper 要素を配置し、これを画面いっぱいに広げて <code>overflow: scroll</code> を指定することでスクロールを可能にした。</p>
+    <p>ページ最上部でステータスバーに向けてスワイプすると、わずかにメニューバーが隠れようとする場合がある。詳細は不明。</p>
+    <p>また、ページ全体をスクロールさせていないので、ステータスバーをタップしてページ最上部にスクロールすることができない。</p>
     
     <ul>
       <li>参考：<a href="https://qiita.com/gonshi_com/items/9aef250920b900fea929">iOS Safari で画面下部のメニューバーが消えないようにする</a></li>
