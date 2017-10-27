@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>iOS Safari Web Test</title>
+    <style>
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.wrapper > * {
+  margin: 3em 15px;
+  line-height: 1.8;
+}
+
+    </style>
+  </head>
+  <body>
+
+<div class="wrapper">
+  <h1>Always Show Bottom MenuBar</h1>
+  
+  <p>iOS Safari における画面下部のメニューバーを、スクロールしても常に表示したままにする。</p>
+  <p>iOS7 時代は、viewport に <code>minimal-ui</code> という独自のプロパティを指定することで、メニューバーを非表示にできた。</p>
+  <p>バージョンアップによりこの機能が廃止されたため、スクロールしてもメニューバーが隠れないようにする方法を考えた。</p>
+  <p>html・body 要素のスクロールによってメニューバーが隠れるため、ページのスクロールは行わないようにした。代わりに body 要素直下に Wrapper 要素を配置し、これを画面いっぱいに広げて <code>overflow: scroll</code> を指定することでスクロールを可能にした。</p>
+  
+  <ul>
+    <li><a href="index.html">Index</a></li>
+  </ul>
+  
+  <p>縦スクロール量を稼ぐためダミー文章を入れる。</p>
+  
+  <hr>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <hr>
+  
+  <p>ダミー文章終わり。</p>
+  
+  <ul>
+    <li><a href="index.html">Index</a></li>
+  </ul>
+</div>
+
+  </body>
+</html>
