@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>iOS Safari Web Test</title>
+    <script>
+
+function handleEvent(eventName) {
+  document.addEventListener(eventName, (event) => {
+    if(event.touches[0]) {
+      console.log(eventName, event.touches[0].force, event.touches, event);
+      document.getElementById('view').innerHTML = `${eventName} : ${event.touches[0].force}`;
+    }
+    else {
+      console.log(eventName, event.touches, event);
+      document.getElementById('view').innerHTML = `${eventName}`;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  handleEvent('touchstart');
+  handleEvent('touchmove');
+  handleEvent('touchforcechange');
+  handleEvent('touchend');
+});
+
+    </script>
+  </head>
+  <body>
+
+<h1>3D Touch</h1>
+
+<p id="view">タッチ状態</p>
+
+<ul>
+  <li><a href="index.html">Index</a></li>
+</ul>
+
+  </body>
+</html>
