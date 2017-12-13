@@ -7,13 +7,19 @@
 
 function handleEvent(eventName) {
   document.addEventListener(eventName, (event) => {
+    document.getElementById('event-name').innerHTML = eventName;
     if(event.touches[0]) {
       console.log(eventName, event.touches[0].force, event.touches, event);
-      document.getElementById('view').innerHTML = `${eventName} : ${event.touches[0].force}`;
+      document.getElementById('f1').innerHTML = event.touches[0].force;
+      document.getElementById('view').innerHTML = JSON.stringify(event.touches);
     }
     else {
       console.log(eventName, event.touches, event);
-      document.getElementById('view').innerHTML = `${eventName}`;
+      document.getElementById('view').innerHTML = JSON.stringify(event);
+    }
+    
+    if(event.touches[1]) {
+      document.getElementById('f2').innerHTML = event.touches[1].force;
     }
   });
 }
@@ -31,7 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <h1>3D Touch</h1>
 
-<p id="view">タッチ状態</p>
+<ul>
+  <li id="event-name">Event Name</li>
+  <li id="f1">Touches[0]</li>
+  <li id="f2">Touches[1]</li>
+</ul>
+
+<p id="view">View</p>
 
 <ul>
   <li><a href="index.html">Index</a></li>
