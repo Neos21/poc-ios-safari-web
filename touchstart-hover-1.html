@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>iOS Safari Web Test</title>
+    <style>
+
+.dummy {
+  display: inline-block;
+  margin: 0 1rem 0 0;
+  border: 0;
+  padding: 1rem;
+  color: #fff;
+  font-size: 1rem;
+  font-family: monospace;
+  text-decoration: none;
+  background: #08f;
+  transition: background-color .3s;
+  cursor: pointer;
+  outline: 0;
+}
+
+.dummy:hover {
+  background: #f0a;
+}
+
+.dummy:focus {
+  background: #bb0;
+}
+
+.dummy:active {
+  background: #6c0;
+}
+
+    </style>
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  function setEvent(id, func) {
+    document.getElementById('exec-' + id).addEventListener('click', function() {
+      try {
+        eval(func);
+        document.getElementById('result-' + id).innerHTML = '実行済';
+      }
+      catch(error) {
+        console.log(error);
+        document.getElementById('result-' + id).innerHTML = '実行失敗';
+      }
+    });
+  }
+  
+  setEvent('win-on'        , 'window.ontouchstart = function() {};'                                 );
+  setEvent('win-add-true'  , 'window.addEventListener(\'touchstart\', function() {}, true);'        );
+  setEvent('win-add-false' , 'window.addEventListener(\'touchstart\', function() {}, false);'       );
+  setEvent('doc-on'        , 'document.ontouchstart = function() {};'                               );
+  setEvent('doc-add-true'  , 'document.addEventListener(\'touchstart\', function() {}, true);'      );
+  setEvent('doc-add-false' , 'document.addEventListener(\'touchstart\', function() {}, false);'     );
+  setEvent('body-on'       , 'document.body.ontouchstart = function() {};'                          );
+  setEvent('body-add-true' , 'document.body.addEventListener(\'touchstart\', function() {}, true);' );
+  setEvent('body-add-false', 'document.body.addEventListener(\'touchstart\', function() {}, false);');
+});
+
+    </script>
+  </head>
+  <body>
+
+<h1>TouchStart Hover</h1>
+
+<p>CSS で <code>:hover</code> や <code>:focus</code> のスタイルを定義した時、iOS 環境では <code>&lt;body ontouchstart=&quot;&quot;&gt;</code> と書かないと有効にならない。</p>
+<p>HTML を書き換えず、<code>window.ontouchstart = function() {};</code> など JavaScript だけで有効にはできないか検証してみる。</p>
+
+<p>
+  <a href="#" class="dummy">ダミーリンク</a>
+  <button type="button" class="dummy">ダミーボタン</button>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>処理</th>
+      <th>実行</th>
+      <th>状況</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>window.ontouchstart = function() {};</code></td>
+      <td><input type="button" id="exec-win-on" value="実行"></td>
+      <td><span id="result-win-on">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>window.addEventListener('touchstart', function() {}, true);</code></td>
+      <td><input type="button" id="exec-win-add-true" value="実行"></td>
+      <td><span id="result-win-add-true">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>window.addEventListener('touchstart', function() {}, false);</code></td>
+      <td><input type="button" id="exec-win-add-false" value="実行"></td>
+      <td><span id="result-win-add-false">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>document.ontouchstart = function() {};</code></td>
+      <td><input type="button" id="exec-doc-on" value="実行"></td>
+      <td><span id="result-doc-on">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>document.addEventListener('touchstart', function() {}, true);</code></td>
+      <td><input type="button" id="exec-doc-add-true" value="実行"></td>
+      <td><span id="result-doc-add-true">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>document.addEventListener('touchstart', function() {}, false);</code></td>
+      <td><input type="button" id="exec-doc-add-false" value="実行"></td>
+      <td><span id="result-doc-add-false">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>document.body.ontouchstart = function() {};</code></td>
+      <td><input type="button" id="exec-body-on" value="実行"></td>
+      <td><span id="result-body-on">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>document.body.addEventListener('touchstart', function() {}, true);</code></td>
+      <td><input type="button" id="exec-body-add-true" value="実行"></td>
+      <td><span id="result-body-add-true">未実行</span></td>
+    </tr>
+    <tr>
+      <td><code>document.body.addEventListener('touchstart', function() {}, false);</code></td>
+      <td><input type="button" id="exec-body-add-false" value="実行"></td>
+      <td><span id="result-body-add-false">未実行</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>参考：<a href="https://qiita.com/junya/items/3ff380878f26ca447f85">Qiita - タッチデバイスで CSS の :active や :hover を機能させる。</a></li>
+  <li>参考：<a href="https://stackoverflow.com/a/17260431">Stack Overflow - How do I simulate a hover with a touch in touch enabled browsers?</a></li>
+</ul>
+
+<ul>
+  <li><a href="index.html">Index</a></li>
+</ul>
+
+  </body>
+</html>
