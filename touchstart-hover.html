@@ -25,8 +25,10 @@
 .dummy:focus  { background: #bb0; }
 .dummy:active { background: #2c4; }
 
-.usn { user-select   : none; }
-.pen { pointer-events: none; }
+.usn {
+  user-select        : none;
+  -webkit-user-select: none;
+}
 
     </style>
     <script>
@@ -65,10 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>CSS で <code>:hover</code> や <code>:focus</code> のスタイルを定義した時、iOS 環境では <code>&lt;body ontouchstart=&quot;&quot;&gt;</code> と書かないと有効にならない。</p>
 <p>HTML を書き換えず、<code>window.ontouchstart = function() {};</code> など JavaScript だけで有効にはできないか検証してみる。</p>
 
-<p>                <a href="#" class="dummy">ダミーリンク</a> <button type="button" class="dummy">ダミーボタン</button> 通常</p>
-<p class="usn">    <a href="#" class="dummy">ダミーリンク</a> <button type="button" class="dummy">ダミーボタン</button> <code>user-select: none;</code></p>
-<p class="pen">    <a href="#" class="dummy">ダミーリンク</a> <button type="button" class="dummy">ダミーボタン</button> <code>pointer-events: none;</code></p>
-<p class="usn pen"><a href="#" class="dummy">ダミーリンク</a> <button type="button" class="dummy">ダミーボタン</button> <code>user-select: none; pointer-events: none;</code></p>
+<p>            <a href="#" class="dummy"    >ダミーリンク</a> <button type="button" class="dummy"    >ダミーボタン</button> 通常</p>
+<p class="usn"><a href="#" class="dummy"    >ダミーリンク</a> <button type="button" class="dummy"    >ダミーボタン</button> 親に <code>-webkit-user-select: none;</code></p>
+<p>            <a href="#" class="dummy usn">ダミーリンク</a> <button type="button" class="dummy usn">ダミーボタン</button> 子に <code>-webkit-user-select: none;</code></p>
 
 <table border="1">
   <thead>
@@ -129,9 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <p>試した限りだと、上のどの方法でも <code>:hover</code> や <code>:focus</code> を有効にできた。</p>
 
-<p>リンクやボタン要素だけに <code>user-select: none;</code> を当てても、周辺にテキストがあるとそちらに範囲選択が出てしまってキレイに処理できない。</p>
+<p>現状 iOS Safari は <code>-webkit-user-select</code> とベンダプレフィックスが必要。</p>
 
-<p>リンクやボタン自体に <code>pointer-events: none;</code> を当てると、Hover もタップ操作も効かなくなった。</p>
+<p>ちなみに、リンクやボタン要素、もしくはそれを内包する親要素に <code>pointer-events: none;</code> を当てると、Hover もタップ操作も効かなくなる。</p>
 
 <ul>
   <li>参考：<a href="https://qiita.com/junya/items/3ff380878f26ca447f85">Qiita - タッチデバイスで CSS の :active や :hover を機能させる。</a></li>
