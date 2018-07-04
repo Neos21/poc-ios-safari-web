@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </tbody>
 </table>
 
-<p>試した限りだと、上のどの方法でも <code>:hover</code> や <code>:focus</code> を有効にできた。</p>
+<p>試した限りだと、上のどの方法でも <code>:hover</code> や <code>:active</code> を有効にできた。<code>:focus</code> に関しては TouchStart イベントの有無に関わらず有効にならなかった。</p>
 
 <p>現状 iOS Safari は <code>-webkit-user-select</code> とベンダプレフィックスが必要。対象の要素か、それを内包する親要素に指定してあれば範囲選択にはならなくなる。</p>
 
