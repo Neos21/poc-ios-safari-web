@@ -21,9 +21,9 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.dummy:hover  { background: #f0a; }
-.dummy:focus  { background: #bb0; }
-.dummy:active { background: #2c4; }
+.hover:hover   { background: #f0a; }
+.focus:focus   { background: #bb0; }
+.active:active { background: #2c4; }
 
 .usn {
   user-select        : none;
@@ -67,8 +67,92 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>CSS で <code>:hover</code> や <code>:focus</code> のスタイルを定義した時、iOS 環境では <code>&lt;body ontouchstart=&quot;&quot;&gt;</code> と書かないと有効にならない。</p>
 <p>HTML を書き換えず、<code>window.ontouchstart = function() {};</code> など JavaScript だけで有効にはできないか検証してみる。</p>
 
-<p>            <a href="#" class="dummy">ダミーリンク</a> <button type="button" class="dummy">ダミーボタン</button> 通常</p>
-<p class="usn"><a href="#" class="dummy">ダミーリンク</a> <button type="button" class="dummy">ダミーボタン</button> <code>-webkit-user-select: none;</code></p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>条件</th>
+      <th><code>a</code> 要素</th>
+      <th><code>button</code> 要素</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 1つ -->
+    <tr>
+      <td><code>:hover</code> のみ指定・通常</td>
+      <td><a href="#" class="dummy hover">ダミーリンク</a></td>
+      <td><button type="button" class="dummy hover">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:hover</code> のみ指定・セレクト禁止</td>
+      <td class="usn"><a href="#" class="dummy hover">ダミーリンク</a></td>
+      <td class="usn"><button type="button" class="dummy hover">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:focus</code> のみ指定・通常</td>
+      <td><a href="#" class="dummy focus">ダミーリンク</a></td>
+      <td><button type="button" class="dummy focus">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:focus</code> のみ指定・セレクト禁止</td>
+      <td class="usn"><a href="#" class="dummy focus">ダミーリンク</a></td>
+      <td class="usn"><button type="button" class="dummy focus">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:active</code> のみ指定・通常</td>
+      <td><a href="#" class="dummy active">ダミーリンク</a></td>
+      <td><button type="button" class="dummy active">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:active</code> のみ指定・セレクト禁止</td>
+      <td class="usn"><a href="#" class="dummy active">ダミーリンク</a></td>
+      <td class="usn"><button type="button" class="dummy active">ダミーボタン</button></td>
+    </tr>
+    <!-- 2つ -->
+    <tr>
+      <td><code>:hover</code>・<code>:focus</code> 指定・通常</td>
+      <td><a href="#" class="dummy hover focus">ダミーリンク</a></td>
+      <td><button type="button" class="dummy hover focus">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:hover</code>・<code>:focus</code> 指定・セレクト禁止</td>
+      <td class="usn"><a href="#" class="dummy hover focus">ダミーリンク</a></td>
+      <td class="usn"><button type="button" class="dummy hover focus">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:focus</code>・<code>:active</code> 指定・通常</td>
+      <td><a href="#" class="dummy focus active">ダミーリンク</a></td>
+      <td><button type="button" class="dummy focus active">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:focus</code>・<code>:active</code> 指定・セレクト禁止</td>
+      <td class="usn"><a href="#" class="dummy focus active">ダミーリンク</a></td>
+      <td class="usn"><button type="button" class="dummy focus active">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:hover</code>・<code>:active</code> 指定・通常</td>
+      <td><a href="#" class="dummy hover active">ダミーリンク</a></td>
+      <td><button type="button" class="dummy hover active">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:hover</code>・<code>:active</code> 指定・セレクト禁止</td>
+      <td class="usn"><a href="#" class="dummy hover active">ダミーリンク</a></td>
+      <td class="usn"><button type="button" class="dummy hover active">ダミーボタン</button></td>
+    </tr>
+    <!-- 3つ -->
+    <tr>
+      <td><code>:hover</code>・<code>:focus</code>・<code>:active</code> 指定・通常</td>
+      <td><a href="#" class="dummy hover focus active">ダミーリンク</a></td>
+      <td><button type="button" class="dummy hover focus active">ダミーボタン</button></td>
+    </tr>
+    <tr>
+      <td><code>:hover</code>・<code>:focus</code>・<code>:active</code> 指定・セレクト禁止</td>
+      <td class="usn"><a href="#" class="dummy hover focus active">ダミーリンク</a></td>
+      <td class="usn"><button type="button" class="dummy hover focus active">ダミーボタン</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
 
 <table border="1">
   <thead>
