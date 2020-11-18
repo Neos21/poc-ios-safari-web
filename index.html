@@ -3,69 +3,76 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>iOS Safari Web Test - Neo's GitHub Pages</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon-192x192.png" sizes="192x192" type="image/png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon-152x152.png" sizes="152x152">
+    <title>iOS Safari Web Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@neos21/neos-normalize@2.0.1/neos-normalize.min.css">
+    <link rel="icon" href="https://neos21.github.io/favicon.ico">
+    <style>
+
+body {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+    </style>
   </head>
   <body>
-    <header><a href="/index.html">Neo's GitHub Pages</a></header>
-    <main>
-      <section>
-        <h1>iOS Safari Web Test</h1>
-        <p>iOS Safari で使える HTML・CSS・JS を検証する。</p>
-        <section>
-          <h2>Contents</h2>
-          <dl>
-            <dt><a href="capable-1.html">apple-mobile-web-app-capable</a></dt>
-            <dd>
-              <p>「ホームに追加」した時にフルスクリーンモードで起動できるようになる <code>meta name=&quot;apple-mobile-web-app-capable&quot;</code> の検証。</p>
-            </dd>
-            <dt><a href="capable-2.html">apple-mobile-web-app-capable・apple-mobile-web-app-status-bar-style : default</a></dt>
-            <dd>
-              <p><code>meta name=&quot;apple-mobile-web-app-status-bar-style&quot;</code> の検証その1。</p>
-            </dd>
-            <dt><a href="capable-3.html">apple-mobile-web-app-capable・apple-mobile-web-app-status-bar-style : black</a></dt>
-            <dd>
-              <p><code>meta name=&quot;apple-mobile-web-app-status-bar-style&quot;</code> の検証その2。</p>
-            </dd>
-            <dt><a href="capable-4.html">apple-mobile-web-app-capable・apple-mobile-web-app-status-bar-style : black-translucent</a></dt>
-            <dd>
-              <p><code>meta name=&quot;apple-mobile-web-app-status-bar-style&quot;</code> の検証その3。</p>
-            </dd>
-            <dt><a href="title-1.html">apple-mobile-web-app-title</a></dt>
-            <dd>
-              <p><code>meta name=&quot;apple-mobile-web-app-title&quot;</code> で「ホームに追加」した時のアプリ名を指定できる。</p>
-            </dd>
-            <dt><a href="js-api-access-1.html">JS API Access</a></dt>
-            <dd>
-              <p>JS でアクセスできる各種 API を確認する。</p>
-            </dd>
-            <dt><a href="apple-system-fonts-1.html">Apple System Font</a></dt>
-            <dd>
-              <p>iOS9 以降の新システムフォント San Francisco を CSS で指定できる <code>-apple-system</code> の検証。</p>
-            </dd>
-            <dt><a href="always-show-bottom-menubar.html">Always Show Bottom MenuBar</a></dt>
-            <dd>
-              <p>iOS Safari の画面下部のメニューバーを、スクロールしても常に表示したままにする。</p>
-            </dd>
-            <dt><a href="3d-touch.html">3D Touch</a></dt>
-            <dd>
-              <p>iPhone 6s 以降で使えるようになった 3D タッチ (Force Touch) の検証。</p>
-            </dd>
-            <dt><a href="touchstart-hover.html">TouchStart Hover</a></dt>
-            <dd>
-              <p>CSS の <code>:hover</code> や <code>:focus</code> を有効にする方法の検証。</p>
-            </dd>
-            <dt><a href="notch-css.html">Notch CSS</a></dt>
-            <dd>
-              <p>CSS で iPhoneX 的なノッチを再現する。</p>
-            </dd>
-          </dl>
-        </section>
-      </section>
-    </main>
-    <footer>Copyright &copy; 2016-2020 <a href="/index.html">Neo</a>, All rights reserved.</footer>
+
+<h1>iOS Safari Web Test</h1>
+<p>iOS Safari で使える HTML・CSS・JS を検証する。</p>
+<dl>
+  <dt><a href="capable-1.html">apple-mobile-web-app-capable</a></dt>
+  <dd>
+    <p>「ホームに追加」した時にフルスクリーンモードで起動できるようになる <code>meta name=&quot;apple-mobile-web-app-capable&quot;</code> の検証。</p>
+  </dd>
+  <dt><a href="capable-2.html">apple-mobile-web-app-capable・apple-mobile-web-app-status-bar-style : default</a></dt>
+  <dd>
+    <p><code>meta name=&quot;apple-mobile-web-app-status-bar-style&quot;</code> の検証その1。</p>
+  </dd>
+  <dt><a href="capable-3.html">apple-mobile-web-app-capable・apple-mobile-web-app-status-bar-style : black</a></dt>
+  <dd>
+    <p><code>meta name=&quot;apple-mobile-web-app-status-bar-style&quot;</code> の検証その2。</p>
+  </dd>
+  <dt><a href="capable-4.html">apple-mobile-web-app-capable・apple-mobile-web-app-status-bar-style : black-translucent</a></dt>
+  <dd>
+    <p><code>meta name=&quot;apple-mobile-web-app-status-bar-style&quot;</code> の検証その3。</p>
+  </dd>
+  <dt><a href="title-1.html">apple-mobile-web-app-title</a></dt>
+  <dd>
+    <p><code>meta name=&quot;apple-mobile-web-app-title&quot;</code> で「ホームに追加」した時のアプリ名を指定できる。</p>
+  </dd>
+  <dt><a href="js-api-access-1.html">JS API Access</a></dt>
+  <dd>
+    <p>JS でアクセスできる各種 API を確認する。</p>
+  </dd>
+  <dt><a href="apple-system-fonts-1.html">Apple System Font</a></dt>
+  <dd>
+    <p>iOS9 以降の新システムフォント San Francisco を CSS で指定できる <code>-apple-system</code> の検証。</p>
+  </dd>
+  <dt><a href="always-show-bottom-menubar.html">Always Show Bottom MenuBar</a></dt>
+  <dd>
+    <p>iOS Safari の画面下部のメニューバーを、スクロールしても常に表示したままにする。</p>
+  </dd>
+  <dt><a href="3d-touch.html">3D Touch</a></dt>
+  <dd>
+    <p>iPhone 6s 以降で使えるようになった 3D タッチ (Force Touch) の検証。</p>
+  </dd>
+  <dt><a href="touchstart-hover.html">TouchStart Hover</a></dt>
+  <dd>
+    <p>CSS の <code>:hover</code> や <code>:focus</code> を有効にする方法の検証。</p>
+  </dd>
+  <dt><a href="notch-css.html">Notch CSS</a></dt>
+  <dd>
+    <p>CSS で iPhoneX 的なノッチを再現する。</p>
+  </dd>
+</dl>
+
+<h2>Links</h2>
+<ul>
+  <li><a href="https://neos21.net/">Neo's World</a></li>
+  <li><a href="https://github.com/Neos21/">GitHub - Neos21</a></li>
+  <li><a href="https://github.com/Neos21/ios-safari-web-test">GitHub - iOS Safari Web Test</a></li>
+</ul>
+
   </body>
 </html>
