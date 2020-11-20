@@ -1,8 +1,8 @@
-# iOS Safari Web Test
+# PoC : iOS Safari Web
 
 iOS Safari で使える HTML・CSS・JS を検証する。
 
-__[Enter This Website](https://neos21.github.io/ios-safari-web-test/)__
+__[Enter This Website](https://neos21.github.io/poc-ios-safari-web/)__
 
 
 ## Links
